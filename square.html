@@ -1334,7 +1334,7 @@
     </script>
     <script>
         async function ask() {
-            const { value: numberToSquare } = Swal.fire({
+            const { value: numberToSquare } = await Swal.fire({
                 title: "Enter the number you want to square",
                 input: "number",
                 inputLabel: "The number you want to square",
@@ -1346,13 +1346,12 @@
                     }
                 }
             });
+            if (numberToSquare || numberToSquare == 0) {
+                Swal.fire(`${numberToSquare} squared is ${numberToSquare ** 2}.`);
+            }
         }
         
         ask();
-        
-        if (numberToSquare || numberToSquare == 0) {
-            Swal.fire(`${numberToSquare} squared is ${numberToSquare ** 2}.`);
-        }
     </script>
 </head>
 
