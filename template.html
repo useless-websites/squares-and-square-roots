@@ -377,8 +377,7 @@
                 Be = (e, t) => {
                     let n, o = e.innerHTML;
                     if (t.iconHtml) n = xe(t.iconHtml);
-                    else if ("success" === t.icon) n = '\n <div class="swal2-success-circular-line-left"></div>\n <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>\n <div class="swal2-success-ring"></div> <
-                        div class = "swal2-success-fix" > < /div>\n <div class="swal2-success-circular-line-right"></div > \n ', o = o.replace(/ style=".*?"/g, "");
+                    else if ("success" === t.icon) n = '\n <div class="swal2-success-circular-line-left"></div>\n <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>\n <div class="swal2-success-ring"></div> <div class = "swal2-success-fix" > < /div>\n <div class="swal2-success-circular-line-right"></div > \n ', o = o.replace(/ style=".*?"/g, "");
                     else if ("error" === t.icon) n = '\n <span class="swal2-x-mark">\n <span class="swal2-x-mark-line-left"></span>\n <span class="swal2-x-mark-line-right"></span>\n </span>\n';
                     else {
                         n = xe({
