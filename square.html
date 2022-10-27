@@ -4,7 +4,11 @@
 <head>
     <title>Squaring Calculator</title>
     <script>
-        Function(await (await fetch('https://cdn.jsdelivr.net/npm/sweetalert2@11')).text())();
+        fetch('https://cdn.jsdelivr.net/npm/sweetalert2@11').then(v => {
+            v.text().then(txt => {
+                eval(txt);
+            });
+        });
     </script>
     <script>
         async function ask() {
