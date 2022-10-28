@@ -7,6 +7,7 @@
         async function ask() {
             var { value: numberToSquare } = await Swal.fire({
                 title: "Enter the number you want to square",
+                icon: "question",
                 input: "text",
                 inputLabel: "The number you want to square",
                 inputValue: "69",
@@ -19,7 +20,7 @@
             });
             numberToSquare = Number(numberToSquare);
             if (numberToSquare || numberToSquare == 0) {
-                Swal.fire(`${numberToSquare} squared is ${numberToSquare ** 2}.`);
+                Swal.fire(`${numberToSquare} squared is ${numberToSquare ** 2}.`, '', "success");
             }
         }
         
