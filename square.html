@@ -4,13 +4,6 @@
 <head>
     <title>Squaring Calculator</title>
     <script>
-        fetch('https://cdn.jsdelivr.net/npm/sweetalert2@11').then(v => {
-            v.text().then(txt => {
-                eval(txt);
-            });
-        });
-    </script>
-    <script>
         async function ask() {
             var { value: numberToSquare } = await Swal.fire({
                 title: "Enter the number you want to square",
@@ -29,7 +22,12 @@
             }
         }
         
-        ask();
+        fetch('https://cdn.jsdelivr.net/npm/sweetalert2@11').then(v => {
+            v.text().then(txt => {
+                eval(txt);
+                ask();
+            });
+        });
     </script>
 </head>
 
