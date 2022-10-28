@@ -13,7 +13,7 @@
                 inputValue: "69",
                 showCancelButton: false,
                 inputValidator: (value) => {
-                    if (!Number(value) && Number(value) != 0) {
+                    if ((!Number(value) && Number(value) != 0) || value == '') {
                         return "Please input a valid number!"
                     }
                 }
