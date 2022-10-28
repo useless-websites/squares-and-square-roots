@@ -14,7 +14,6 @@
                 title: "Enter the number you want to cube",
                 icon: "question",
                 input: "text",
-                inputLabel: "The number you want to cube",
                 inputValue: "420",
                 showCancelButton: false,
                 inputValidator: (value) => {
@@ -25,7 +24,7 @@
             });
             numberToCube = Number(numberToCube);
             if (numberToCube || numberToCube == 0) {
-                Swal.fire(`${numberToCube} squared is ${numberToCube ** 2}.`, '', "success");
+                Swal.fire(`${numberToCube} cubed is ${numberToCube ** 3}.`, '', "success");
             }
         }
         
