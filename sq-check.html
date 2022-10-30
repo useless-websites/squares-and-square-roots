@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Square Checker</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+        }
+    </style>
+    <script>
+        async function ask() {
+            var { value: num } = await Swal.fire({
+                title: "Enter the number you want to check if it is a perfect square",
+                icon: "question",
+                input: "text",
+                inputValue: "69",
+                showCancelButton: false,
+                inputValidator: (value) => {
+                    if ((!Number(value) && Number(value) != 0) || value == '') {
+                        return "Please input a valid number!"
+                    }
+                }
+            });
+            try {
+                var regnum = Number(num);
+            }
+            catch {
+                await Swal.fire(`No input detected.`, "", "error");
+                location = ".";
+            }
+            try {
+                var bignum = BigInt(num);
+            }
+            catch {
+                await Swal.fire(`${num} is not a perfect square.`, "", "error");
+                location = ".";
+            }
+            var num = BigInt(num);
+            if (num < 0n) {
+                await Swal.fire(`${num} is not a perfect square.`, "", "error");
+                location = ".";
+            }
+            function sqrt(value) {
+                if (value < 2n) {
+                    return value;
+                }
+                function newtonIteration(n, x0) {
+                    const x1 = ((n / x0) + x0) >> 1n;
+                    if (x0 === x1 || x0 === (x1 - 1n)) {
+                        return x0;
+                    }
+                    return newtonIteration(n, x1);
+                }
+                return newtonIteration(value, 1n);
+            }
+            if (sqrt(num) ** 2 == num)
+                await Swal.fire(`${num} is a perfect square.`, "", "success");
+            location = ".";
+        }
+        
+        fetch('https://cdn.jsdelivr.net/npm/sweetalert2@11').then(v => {
+            v.text().then(txt => {
+                eval(txt);
+                ask();
+            });
+        });
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
