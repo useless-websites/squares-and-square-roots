@@ -22,24 +22,22 @@
                     }
                 }
             });
-            try {
-                var regnum = Number(num);
-            }
-            catch {
+            var regnum = Number(num);
+            if (regnum && regnum != 0) {
                 await Swal.fire(`No input detected.`, "", "error");
-                location = ".";
+                return location = ".";
             }
             try {
                 var bignum = BigInt(num);
             }
             catch {
                 await Swal.fire(`${num} is not a perfect square.`, "", "error");
-                location = ".";
+                return location = ".";
             }
             var num = BigInt(num);
             if (num < 0n) {
                 await Swal.fire(`${num} is not a perfect square.`, "", "error");
-                location = ".";
+                return location = ".";
             }
             function sqrt(value) {
                 if (value < 2n) {
@@ -56,7 +54,7 @@
             }
             if (sqrt(num) ** 2 == num)
                 await Swal.fire(`${num} is a perfect square.`, "", "success");
-            location = ".";
+            return location = ".";
         }
         
         fetch('https://cdn.jsdelivr.net/npm/sweetalert2@11').then(v => {
