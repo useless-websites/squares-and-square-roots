@@ -23,7 +23,7 @@
                 }
             });
             var regnum = Number(num);
-            if (regnum && regnum != 0) {
+            if (!regnum && regnum != 0) {
                 await Swal.fire(`No input detected.`, "", "error");
                 return location = ".";
             }
