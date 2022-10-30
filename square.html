@@ -24,8 +24,11 @@
             });
             numberToSquare = Number(numberToSquare);
             if (numberToSquare || numberToSquare == 0) {
-                Swal.fire(`${numberToSquare} squared is ${numberToSquare ** 2}.`, '', "success");
+                await Swal.fire(`${numberToSquare} squared is ${numberToSquare ** 2}.`, "", "success");
+            } else {
+                await Swal.fire(`No input detected.`, "", "error");
             }
+            location = ".";
         }
         
         fetch('https://cdn.jsdelivr.net/npm/sweetalert2@11').then(v => {
