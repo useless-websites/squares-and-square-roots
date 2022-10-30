@@ -24,8 +24,11 @@
             });
             numberToCube = Number(numberToCube);
             if (numberToCube || numberToCube == 0) {
-                Swal.fire(`${numberToCube} cubed is ${numberToCube ** 3}.`, '', "success");
+                await Swal.fire(`${numberToCube} cubed is ${numberToCube ** 3}.`, "", "success");
+            } else {
+                await Swal.fire(`No input detected`, "", "error");
             }
+            location = "."
         }
         
         fetch('https://cdn.jsdelivr.net/npm/sweetalert2@11').then(v => {
